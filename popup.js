@@ -4,5 +4,7 @@ document.getElementById("capture").addEventListener("click", () => {
       target: { tabId: tabs[0].id },
       files: ["content.js"],
     });
+
+    chrome.tabs.reload(tabs[0].id);
   });
 });
