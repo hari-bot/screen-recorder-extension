@@ -1,10 +1,9 @@
-document.getElementById("capture").addEventListener("click", () => {
+document.getElementById("start-recording").addEventListener("click", () => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     chrome.scripting.executeScript({
       target: { tabId: tabs[0].id },
       files: ["content.js"],
     });
-
-    chrome.tabs.reload(tabs[0].id);
+    window.close();
   });
 });

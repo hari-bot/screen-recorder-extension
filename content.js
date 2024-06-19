@@ -7,13 +7,15 @@ const overlayHTML = `
 `;
 
 function createOverlay() {
-  document.body.insertAdjacentHTML("beforeend", overlayHTML);
-  document
-    .getElementById("start-stop")
-    .addEventListener("click", toggleCapture);
-  document
-    .getElementById("close-overlay")
-    .addEventListener("click", closeOverlay);
+  if (!document.getElementById("overlay")) {
+    document.body.insertAdjacentHTML("beforeend", overlayHTML);
+    document
+      .getElementById("start-stop")
+      .addEventListener("click", toggleCapture);
+    document
+      .getElementById("close-overlay")
+      .addEventListener("click", closeOverlay);
+  }
 }
 
 let mediaRecorder;
